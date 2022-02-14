@@ -19,11 +19,13 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) == true)
+        //checks for space input and if the player is grounded
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            jumpKeyPressed = true;
+            Jump();
+    
         }
         horizontalInput = Input.GetAxis("Horizontal");
 
@@ -45,17 +47,31 @@ public class Player : MonoBehaviour
        
 
 
-       if (jumpKeyPressed == true)
+     /*  if (jumpKeyPressed == true)
        {
             rigidBodyComponent.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
             jumpKeyPressed = false;
-       }
+       }*/
       
 
         rigidBodyComponent.velocity = new Vector2(horizontalInput*5, rigidBodyComponent.velocity.y);
 
 
     }
+    //checks to see if the charcter is on the ground
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+            isGrounded = true;
+    }
+
+    //jumps
+    private void Jump()
+    {
+        rigidBodyComponent.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
+        isGrounded = false;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
