@@ -6,10 +6,16 @@ public class Player : MonoBehaviour
 {
     public Transform groundCheckTransform;
     [SerializeField] private LayerMask playerMask;
+    [SerializeField] private int jumpForce;
+    [SerializeField] private int walkSpeed;
     private bool jumpKeyPressed = false;
     private float horizontalInput;
     private Rigidbody2D rigidBodyComponent;
     private bool isGrounded;
+    public float hangTime = .1f;
+    private float hangCounter;
+    public float jumpBuffer = .1f;
+    private float jumpBufferCount;
     
     // Start is called before the first frame update
     void Start()
@@ -21,11 +27,36 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        //late reaction off side of cliff/jumping platform
+        if (isGrounded)
+        {
+            hangCounter = hangTime;
+        }
+        else
+        {
+            hangCounter -= Time.deltaTime;
+        }
+
+        // jump Buffer
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpBufferCount = jumpBuffer;
+        }
+        else
+        {
+            jumpBufferCount -= Time.deltaTime;
+        }
+
         //checks for space input and if the player is grounded
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (jumpBufferCount >= 0 && hangCounter > 0)
         {
             Jump();
-    
+            jumpBufferCount = 0;
+        }
+        //Small Tap jump
+        if(Input.GetKeyUp(KeyCode.Space) && rigidBodyComponent.velocity.y > 0)
+        {
+            rigidBodyComponent.velocity = new Vector2(rigidBodyComponent.velocity.x, rigidBodyComponent.velocity.y * .5f);
         }
         horizontalInput = Input.GetAxis("Horizontal");
 
@@ -54,7 +85,7 @@ public class Player : MonoBehaviour
        }*/
       
 
-        rigidBodyComponent.velocity = new Vector2(horizontalInput*5, rigidBodyComponent.velocity.y);
+        rigidBodyComponent.velocity = new Vector2(horizontalInput*walkSpeed, rigidBodyComponent.velocity.y);
 
 
     }
@@ -68,7 +99,7 @@ public class Player : MonoBehaviour
     //jumps
     private void Jump()
     {
-        rigidBodyComponent.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
+        rigidBodyComponent.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         isGrounded = false;
     }
 
