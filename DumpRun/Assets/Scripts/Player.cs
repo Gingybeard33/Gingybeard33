@@ -24,7 +24,13 @@ public class Player : MonoBehaviour
     private float jumpBufferCount;
     //Wall jump
     private BoxCollider2D boxCollider;
-    private float wallJumpCooldown;
+    private float wallJumpTime = 0.2f;
+    private float wallJump;
+    private float wallSlideSpeed = 0.5f;
+    private bool isWallSliding = false;
+    private float wallDistance = .55f;
+    private RaycastHit2D wallCheckHit;
+  
 
     //First thing that happens when the game is insialized 
     private void Awake()
@@ -43,12 +49,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        //wall jumping
-        /*if (wallJumpCooldown > 0.2f)
-        {*/
-
-
-            //late reaction off side of cliff/jumping platform
+         //late reaction off side of cliff/jumping platform
             if (isGrounded())
             {
                 hangCounter = hangTime;
@@ -69,7 +70,7 @@ public class Player : MonoBehaviour
             }
 
             //checks for space input and if the player is grounded
-            if (jumpBufferCount >= 0 && hangCounter > 0)
+            if ((jumpBufferCount >= 0 && hangCounter > 0) || (isWallSliding && Input.GetKeyDown(KeyCode.Space)))
             {
                 Jump();
                 jumpBufferCount = 0;
@@ -80,16 +81,40 @@ public class Player : MonoBehaviour
                 rigidBodyComponent.velocity = new Vector2(rigidBodyComponent.velocity.x, rigidBodyComponent.velocity.y * .5f);
             }
 
-    /*}
-        else
-            wallJumpCooldown += Time.deltaTime;*/
-
     }
 
     //called once every physics update
     private void FixedUpdate()
     {
         rigidBodyComponent.velocity = new Vector2(horizontalInput*walkSpeed, rigidBodyComponent.velocity.y);
+
+        //walljump
+        //checking right
+        if(horizontalInput > 0)
+        {
+            wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance, wallLayer);
+        }
+        else if(horizontalInput < 0)
+        {
+            wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance, wallLayer);
+        }
+        
+        if (wallCheckHit && !isGrounded())
+        {
+            isWallSliding = true;
+            wallJump = Time.time + wallJumpTime;
+        }
+        else if (wallJump < Time.time )
+        {
+            isWallSliding = false;
+ 
+        }
+
+        if (isWallSliding)
+        {
+            rigidBodyComponent.velocity = new Vector2(rigidBodyComponent.velocity.x, 
+                Mathf.Clamp(rigidBodyComponent.velocity.y, -wallSlideSpeed, float.MaxValue));
+        }
     }
 
     //checks if you are on the ground
@@ -100,31 +125,23 @@ public class Player : MonoBehaviour
         return raycastHit.collider != null;
     }
 
-   /* //checks if you are on a wall
-    private bool onWall()
-    {
-
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0,
-            new Vector2(transform.localScale.x, 0), 0.5f, wallLayer);
-        return raycastHit.collider != null;
-    }*/
 
     //jumps
     private void Jump()
     {
+
+
+
+        //rigidBodyComponent.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         if (isGrounded())
         {
-            Debug.Log("Jumping");
-
-            rigidBodyComponent.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rigidBodyComponent.velocity = new Vector2(rigidBodyComponent.velocity.x, jumpForce);
         }
-        /*else if (onWall() && !isGrounded())
+        else if (isWallSliding && !isGrounded())
         {
-            Debug.Log("Wall Jump");
-
-            wallJumpCooldown = 0;
-            rigidBodyComponent.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * wallJumpXForce, wallJumpYForce), ForceMode2D.Impulse);
-        }*/
+            rigidBodyComponent.velocity = new Vector2(rigidBodyComponent.velocity.x, jumpForce);
+            //rigidBodyComponent.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * wallJumpXForce, wallJumpYForce), ForceMode2D.Impulse);
+        }
     }
 
 
