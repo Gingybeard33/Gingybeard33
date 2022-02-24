@@ -13,6 +13,10 @@ public class Player : MonoBehaviour
     [SerializeField] private int wallJumpXForce;
     [SerializeField] private int wallJumpYForce;
     [SerializeField] private int walkSpeed;
+    [SerializeField] private int wallJumpImpulse;
+    private bool isMovingLeft = false;
+    private bool wallOnLeft = false;
+    private bool wallOnRight = false;
     private float horizontalInput;
     private Rigidbody2D rigidBodyComponent;
     
@@ -80,6 +84,18 @@ public class Player : MonoBehaviour
             {
                 rigidBodyComponent.velocity = new Vector2(rigidBodyComponent.velocity.x, rigidBodyComponent.velocity.y * .5f);
             }
+          
+        if (rigidBodyComponent.velocity.x > 0)
+        {
+            isMovingLeft = false;
+           // Debug.Log("Moving right");
+        }
+        else
+        {
+              isMovingLeft = true;
+            // Debug.Log("Moving left");
+        }
+
 
     }
 
@@ -93,16 +109,72 @@ public class Player : MonoBehaviour
         if(horizontalInput > 0)
         {
             wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance, wallLayer);
+            //wall on right
+            if (wallCheckHit == true)
+            {
+                wallOnRight = true;
+                wallOnLeft = false;
+                Debug.Log("WallOnRight");
+            }
+            else
+            {
+                wallOnRight = false;
+                wallOnLeft = false;
+            }
+
         }
         else if(horizontalInput < 0)
         {
             wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance, wallLayer);
+            //wall on left
+            if (wallCheckHit == true)
+            {
+                wallOnRight = false;
+                wallOnLeft = true;
+                Debug.Log("WallOnLeft");
+            }
+            else
+            {
+                wallOnRight = false;
+                wallOnLeft = false;
+            }
+        }
+        else //horizontal input == 0
+        {
+            //check for wall on right
+            wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(-wallDistance, 0), wallDistance, wallLayer);
+            if (wallCheckHit)
+            {
+                wallOnLeft = true;
+                wallOnRight = false;
+            }
+            else if(!wallCheckHit)
+            {
+                //check for wall on left now
+               wallCheckHit = Physics2D.Raycast(transform.position, new Vector2(wallDistance, 0), wallDistance, wallLayer);
+                 //wall on left
+               if (wallCheckHit)
+                {
+                    wallOnRight = true;
+                    wallOnLeft = false;
+                }
+               //wall not on right or left
+                else
+                {
+                    wallOnRight = false;
+                    wallOnLeft = false;
+                }
+
+            } 
+
+           
         }
         
         if (wallCheckHit && !isGrounded())
         {
             isWallSliding = true;
             wallJump = Time.time + wallJumpTime;
+            Debug.Log("WallSLiding");
         }
         else if (wallJump < Time.time )
         {
@@ -139,7 +211,21 @@ public class Player : MonoBehaviour
         }
         else if (isWallSliding && !isGrounded())
         {
-            rigidBodyComponent.velocity = new Vector2(rigidBodyComponent.velocity.x, jumpForce);
+           // rigidBodyComponent.velocity = new Vector2(rigidBodyComponent.velocity.x, jumpForce);
+
+
+            if (wallOnLeft)
+            {
+                rigidBodyComponent.velocity = new Vector2( wallJumpImpulse, jumpForce);
+                Debug.Log("WallJumpToTheRIght");
+               // rigidBodyComponent.AddForce(new Vector2(wallJumpImpulse, 0), ForceMode2D.Impulse);
+            }
+            else if(wallOnRight)
+            {
+                rigidBodyComponent.velocity = new Vector2(-wallJumpImpulse, jumpForce);
+                Debug.Log("WallJumpToTheLeft");
+                //rigidBodyComponent.AddForce(new Vector2(-wallJumpImpulse, 0), ForceMode2D.Impulse);
+            }
             //rigidBodyComponent.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * wallJumpXForce, wallJumpYForce), ForceMode2D.Impulse);
         }
     }
