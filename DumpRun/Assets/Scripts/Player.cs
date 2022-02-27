@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
-{
+{ 
+    /*
     //Movement
     public Transform groundCheckTransform;
     [SerializeField] private LayerMask groundLayer;
@@ -239,6 +240,53 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             //trash picked up by player
         }
+    }*/
+
+
+     
+     // From Tutorial Video - Working movement and jumping
+     // 
+    [SerializeField] private Transform groundCheckTransform;
+    [SerializeField] private LayerMask playerMask;
+
+    private bool jumpKeyPressed;
+    private float horizontalInput;
+    private Rigidbody2D rigidBodyComp;
+
+    private void Start()
+    {
+        rigidBodyComp = GetComponent<Rigidbody2D>();
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            jumpKeyPressed = false;
+            Debug.Log("Space Released");
+        }
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            jumpKeyPressed = true;
+            Debug.Log("Space Pressed");
+        }
+
+        horizontalInput = Input.GetAxis("Horizontal");
+    }
+
+    private void FixedUpdate()
+    {
+        rigidBodyComp.velocity = new Vector2(horizontalInput, rigidBodyComp.velocity.y);
+
+        if (Physics2D.OverlapCircleAll(groundCheckTransform.position, 0.1f).Length == 2)
+        {
+            return;
+        }
+
+        if (jumpKeyPressed)
+        {
+            rigidBodyComp.AddForce(Vector3.up * 3, ForceMode2D.Impulse);
+        }
+    } 
 }
