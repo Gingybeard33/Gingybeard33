@@ -29,6 +29,13 @@ public class MeleeEnemy : MonoBehaviour
     void Update()
     {
         
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+
         healthBar.SetSize(health);
         cooldownTimer += Time.deltaTime;
 
@@ -99,7 +106,7 @@ public class MeleeEnemy : MonoBehaviour
 
     }
 
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health = health - damage;
     }
