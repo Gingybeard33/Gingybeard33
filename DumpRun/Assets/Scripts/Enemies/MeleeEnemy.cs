@@ -14,8 +14,10 @@ public class MeleeEnemy : MonoBehaviour
     private float cooldownTimer = Mathf.Infinity;
 
     private EnemyPatrol enemyPatrol;
-       
-    
+
+    //Health
+    [SerializeField] private float health;
+    [SerializeField] private HealthBar healthBar;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,8 @@ public class MeleeEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        healthBar.SetSize(health);
         cooldownTimer += Time.deltaTime;
 
         if (PlayerInSightMele())
@@ -71,6 +75,7 @@ public class MeleeEnemy : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        /*
         Gizmos.color = Color.red;
         if (!enemyPatrol.movingLeft)
         {
@@ -82,6 +87,7 @@ public class MeleeEnemy : MonoBehaviour
             Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance*-1,
            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y * rangeHeight, boxCollider.bounds.size.z));
         }
+        */
     }
 
     private void DamagePlayer()
@@ -91,5 +97,10 @@ public class MeleeEnemy : MonoBehaviour
             //give damage to player
         }
 
+    }
+
+    private void TakeDamage(float damage)
+    {
+        health = health - damage;
     }
 }

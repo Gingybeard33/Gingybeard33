@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 { 
-    /*
+    
     //Movement
     public Transform groundCheckTransform;
     [SerializeField] private LayerMask groundLayer;
@@ -35,7 +35,11 @@ public class Player : MonoBehaviour
     private bool isWallSliding = false;
     private float wallDistance = .55f;
     private RaycastHit2D wallCheckHit;
-  
+
+    //Health
+    [SerializeField] private float health;
+    [SerializeField] private HealthBar healthBar;
+
 
     //First thing that happens when the game is insialized 
     private void Awake()
@@ -46,6 +50,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        healthBar.SetSize(1f);
         Debug.Log("Hello From Start");
         
     }
@@ -53,6 +58,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        healthBar.SetSize(health);
         horizontalInput = Input.GetAxis("Horizontal");
          //late reaction off side of cliff/jumping platform
             if (isGrounded())
@@ -239,11 +245,18 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             //trash picked up by player
+           // health = health - 0.1f;
         }
-    }*/
+        //if object is enemy projectile, take damage
+    }
 
 
-     
+    private void TakeDamage(float damage)
+    {
+        health = health - damage;
+    }
+
+     /*
      // From Tutorial Video - Working movement and jumping
      // 
     [SerializeField] private Transform groundCheckTransform;
@@ -289,4 +302,5 @@ public class Player : MonoBehaviour
             rigidBodyComp.AddForce(Vector3.up * 3, ForceMode2D.Impulse);
         }
     } 
+     */
 }

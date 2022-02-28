@@ -27,7 +27,7 @@ public class EnemyPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       // movingLeft = false;
     }
 
     // Update is called once per frame
