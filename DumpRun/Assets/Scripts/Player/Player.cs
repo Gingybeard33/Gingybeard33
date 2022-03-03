@@ -181,7 +181,7 @@ public class Player : MonoBehaviour
                 {
                     wallOnRight = true;
                     wallOnLeft = false;
-                    HasDoubleJump = true;
+                    HasDoubleJump = true;   
                 }
                //wall not on right or left
                 else
