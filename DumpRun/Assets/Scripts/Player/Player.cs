@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     private bool wallOnRight = false;
     private float horizontalInput;
     private Rigidbody2D rigidBodyComponent;
+
+
+    private bool HasDoubleJump = true;
     
 
     //Game feeling
@@ -64,6 +67,7 @@ public class Player : MonoBehaviour
             if (isGrounded())
             {
                 hangCounter = hangTime;
+                HasDoubleJump = true;
             }
             else
             {
@@ -79,18 +83,26 @@ public class Player : MonoBehaviour
             {
                 jumpBufferCount -= Time.deltaTime;
             }
-
+            /*
             //checks for space input and if the player is grounded
             if ((jumpBufferCount >= 0 && hangCounter > 0) || (isWallSliding && Input.GetKeyDown(KeyCode.Space)))
             {
                 Jump();
                 jumpBufferCount = 0;
             }
+            
             //Small Tap jump
             if (Input.GetKeyUp(KeyCode.Space) && rigidBodyComponent.velocity.y > 0)
             {
                 rigidBodyComponent.velocity = new Vector2(rigidBodyComponent.velocity.x, rigidBodyComponent.velocity.y * .5f);
             }
+            */
+
+            if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Jump();
+        }
+
           
         if (rigidBodyComponent.velocity.x > 0)
         {
@@ -111,7 +123,11 @@ public class Player : MonoBehaviour
     {
         rigidBodyComponent.velocity = new Vector2(horizontalInput*walkSpeed, rigidBodyComponent.velocity.y);
 
+
+
+       
         //walljump
+        
         //checking right
         if(horizontalInput > 0)
         {
@@ -154,6 +170,7 @@ public class Player : MonoBehaviour
             {
                 wallOnLeft = true;
                 wallOnRight = false;
+                HasDoubleJump = true;
             }
             else if(!wallCheckHit)
             {
@@ -164,6 +181,7 @@ public class Player : MonoBehaviour
                 {
                     wallOnRight = true;
                     wallOnLeft = false;
+                    HasDoubleJump = true;
                 }
                //wall not on right or left
                 else
@@ -234,6 +252,19 @@ public class Player : MonoBehaviour
                 //rigidBodyComponent.AddForce(new Vector2(-wallJumpImpulse, 0), ForceMode2D.Impulse);
             }
             //rigidBodyComponent.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * wallJumpXForce, wallJumpYForce), ForceMode2D.Impulse);
+        }
+        else if (!isGrounded())
+        {
+            if (HasDoubleJump)
+            {
+                Debug.Log("DoubleJumping");
+                rigidBodyComponent.velocity = new Vector2(rigidBodyComponent.velocity.x, jumpForce);
+                if (!isWallSliding)
+                {
+                    HasDoubleJump = false;
+                }
+
+            }
         }
     }
 
