@@ -1753,7 +1753,7 @@ Animator:
   m_GameObject: {fileID: 451974179}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ab51dd2341273694b9f0369b36f983d1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 78c8c606c4b56b6408ee68dfc0e3d541, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -6449,12 +6449,32 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4255963604753822464, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 2.94
+      objectReference: {fileID: 0}
+    - target: {fileID: -4255963604753822464, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
+      propertyPath: m_Size.y
+      value: 3.86
       objectReference: {fileID: 0}
     - target: {fileID: -4255963604753822464, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: de351f20d7e925644b902c88237569ed, type: 2}
+    - target: {fileID: -4255963604753822464, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.34
+      objectReference: {fileID: 0}
+    - target: {fileID: -4255963604753822464, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: -4255963604753822464, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.36
+      objectReference: {fileID: 0}
+    - target: {fileID: -4255963604753822464, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.91
+      objectReference: {fileID: 0}
     - target: {fileID: 6596056014129446626, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -6493,6 +6513,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6596056014129446628, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
       propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596056014129446628, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 59bc329ee7b45d44884877281338d7a4, type: 3}
+    - target: {fileID: 6596056014129446628, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
+      propertyPath: m_SpriteSortPoint
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6596056014129446629, guid: 080b89c4b31d191468fea22ddda87321, type: 3}
