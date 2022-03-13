@@ -10,6 +10,13 @@ public class PlayerAttack : MonoBehaviour
     private Animator anim;
     private Player player;
 
+    public Transform attackPos;
+    public LayerMask enemyMask;
+    public float meleeRange;
+    public float meleeDamage;
+
+    private float meleeTimeBetweenAttack;
+    public float meleeStartTimeBetweenAttack;
 
     [SerializeField] private float cooldownTimer = Mathf.Infinity;
     // Start is called before the first frame update
@@ -25,7 +32,44 @@ public class PlayerAttack : MonoBehaviour
         {
             Attack();
         }
+
+        //melee attack system
+        if (meleeTimeBetweenAttack <= 0)
+        {
+            
+            if (Input.GetMouseButton(1))
+            {
+                Debug.Log("MeleePressed");
+                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, meleeRange, enemyMask);
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    try
+                    {
+                        enemies[i].GetComponent<MeleeEnemy>().TakeDamage(meleeDamage);
+                    }
+                    catch
+                    {
+                        enemies[i].GetComponent<RangedEnemy>().TakeDamage(meleeDamage);
+                    }
+                    Debug.Log("MeleeAttack");
+                }
+                meleeTimeBetweenAttack = meleeStartTimeBetweenAttack;
+            }
+            
+
+        }
+        else
+        {
+            meleeTimeBetweenAttack -= Time.deltaTime;
+        }
         cooldownTimer += Time.deltaTime;
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, meleeRange);
     }
 
     private void Attack()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 { 
@@ -61,6 +62,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (health <= 0)
+        {
+
+            int scene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        }
         healthBar.SetSize(health);
         horizontalInput = Input.GetAxis("Horizontal");
          //late reaction off side of cliff/jumping platform
@@ -292,7 +299,7 @@ public class Player : MonoBehaviour
     }
 
 
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health = health - damage;
     }

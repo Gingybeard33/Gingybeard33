@@ -40,12 +40,22 @@ public class Projectile : MonoBehaviour
       
         //explode
         //do damage to enemy we contacted
-        if (!(collision.gameObject.layer == 7))
+        if (!(collision.gameObject.layer == 7) && !(collision.gameObject.layer == 11))
         {
             if (collision.gameObject.layer == 8)
             {
-                MeleeEnemy enemy = collision.gameObject.GetComponent<MeleeEnemy>();
-                enemy.TakeDamage(damage);
+
+                try
+                {
+                    MeleeEnemy enemy = collision.gameObject.GetComponent<MeleeEnemy>();
+                    enemy.TakeDamage(damage);
+                }
+                catch
+                {
+                    RangedEnemy enemy = collision.gameObject.GetComponent<RangedEnemy>();
+                    enemy.TakeDamage(damage);
+                }
+               
             }
             hit = true;
             boxCollider.enabled = false;

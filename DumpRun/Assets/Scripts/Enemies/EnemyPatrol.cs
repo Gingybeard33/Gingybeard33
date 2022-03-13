@@ -33,27 +33,34 @@ public class EnemyPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (movingLeft)
+        try
         {
-            if (enemy.position.x >= leftEdge.position.x)
+            if (movingLeft)
             {
-                MoveInDirection(-1);
+                if (enemy.position.x >= leftEdge.position.x)
+                {
+                    MoveInDirection(-1);
+                }
+                else
+                {
+                    DirectionChange();
+                }
             }
             else
             {
-                DirectionChange();
+                if (enemy.position.x <= rightEdge.position.x)
+                {
+                    MoveInDirection(1);
+                }
+                else
+                {
+                    DirectionChange();
+                }
             }
         }
-        else
+        catch
         {
-            if (enemy.position.x <= rightEdge.position.x)
-            {
-                MoveInDirection(1);
-            }
-            else
-            {
-                DirectionChange();
-            }
+            return;
         }
         
     }
