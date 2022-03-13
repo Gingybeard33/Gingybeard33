@@ -64,6 +64,16 @@ public class Player : MonoBehaviour
         healthBar.SetSize(health);
         horizontalInput = Input.GetAxis("Horizontal");
          //late reaction off side of cliff/jumping platform
+
+        //flip the player based on direction
+         if (horizontalInput > 0.01f)
+        {
+            transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        }
+        else if (horizontalInput < -0.0f)
+        {
+            transform.localScale = new Vector3(-0.5f, 0.5f, 0.5f);
+        }
             if (isGrounded())
             {
                 hangCounter = hangTime;
