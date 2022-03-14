@@ -17,7 +17,7 @@ public class MeleeEnemy : MonoBehaviour
     
     [SerializeField] private EnemyPatrol enemyPatrol;
     //Health
-    [SerializeField] private float health;
+    [SerializeField] public float health;
     [SerializeField] private HealthBar healthBar;
 
     // Start is called before the first frame update
