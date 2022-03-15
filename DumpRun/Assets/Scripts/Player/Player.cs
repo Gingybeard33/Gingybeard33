@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private HealthBar healthBar;
 
+    public int trashCollected = 0;
 
     //First thing that happens when the game is insialized 
     private void Awake()
@@ -293,7 +294,8 @@ public class Player : MonoBehaviour
         {
             Destroy(other.gameObject);
             //trash picked up by player
-           // health = health - 0.1f;
+            // health = health - 0.1f;
+            trashCollected++;
         }
         //if object is enemy projectile, take damage
     }
