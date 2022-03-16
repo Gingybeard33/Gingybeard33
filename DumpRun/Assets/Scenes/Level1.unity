@@ -19139,6 +19139,10 @@ PrefabInstance:
       propertyPath: projectiles.Array.data[20]
       value: 
       objectReference: {fileID: 827248649}
+    - target: {fileID: 2972819771420894213, guid: 75ee52b047e74aa47b4af9a3240f1a81, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 78c8c606c4b56b6408ee68dfc0e3d541, type: 2}
     - target: {fileID: 2972819771420894214, guid: 75ee52b047e74aa47b4af9a3240f1a81, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
