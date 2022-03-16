@@ -12260,6 +12260,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.07
       objectReference: {fileID: 0}
+    - target: {fileID: 8010522643723467190, guid: f7063e12429ae1749b5eb30fe838988f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.13
+      objectReference: {fileID: 0}
     - target: {fileID: 8010522644048750790, guid: f7063e12429ae1749b5eb30fe838988f, type: 3}
       propertyPath: m_Name
       value: EnemyPatrol (10)
@@ -12270,7 +12274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8010522644546606367, guid: f7063e12429ae1749b5eb30fe838988f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 381.75
+      value: 381.52
       objectReference: {fileID: 0}
     - target: {fileID: 8010522644546606367, guid: f7063e12429ae1749b5eb30fe838988f, type: 3}
       propertyPath: m_LocalPosition.y
