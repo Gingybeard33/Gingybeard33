@@ -18,6 +18,9 @@ public class PlayerAttack : MonoBehaviour
     private float meleeTimeBetweenAttack;
     public float meleeStartTimeBetweenAttack;
 
+    private float meleeTime;
+    private float timeSinceLastMelee;
+
     [SerializeField] private float cooldownTimer = Mathf.Infinity;
     // Start is called before the first frame update
     void Start()
@@ -36,10 +39,11 @@ public class PlayerAttack : MonoBehaviour
         //melee attack system
         if (meleeTimeBetweenAttack <= 0)
         {
-            
+            player.animator.SetBool("MeleePressed", false);
             if (Input.GetMouseButton(1))
             {
                 Debug.Log("MeleePressed");
+                player.animator.SetBool("MeleePressed", true);
                 Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, meleeRange, enemyMask);
                 for (int i = 0; i < enemies.Length; i++)
                 {
@@ -52,10 +56,12 @@ public class PlayerAttack : MonoBehaviour
                         enemies[i].GetComponent<RangedEnemy>().TakeDamage(meleeDamage);
                     }
                     Debug.Log("MeleeAttack");
+                   
                 }
                 meleeTimeBetweenAttack = meleeStartTimeBetweenAttack;
             }
-            
+            //player.animator.SetBool("MeleePressed", false);
+
 
         }
         else
