@@ -40,10 +40,12 @@ public class EnemyPatrol : MonoBehaviour
                 if (enemy.position.x >= leftEdge.position.x)
                 {
                     MoveInDirection(-1);
+                   
                 }
                 else
                 {
                     DirectionChange();
+                    
                 }
             }
             else
@@ -55,6 +57,7 @@ public class EnemyPatrol : MonoBehaviour
                 else
                 {
                     DirectionChange();
+                   
                 }
             }
         }
@@ -77,6 +80,7 @@ public class EnemyPatrol : MonoBehaviour
         if (idleTimer > idleDuration)
         {
             movingLeft = !movingLeft;
+            enemy.localScale = new Vector3((enemy.localScale.x * -1), initScale.y, initScale.z);
         }
 
     }
@@ -84,7 +88,7 @@ public class EnemyPatrol : MonoBehaviour
     private void MoveInDirection(int direction)
     {
         idleTimer = 0;
-        enemy.localScale = new Vector3(Mathf.Abs(initScale.x * direction), initScale.y, initScale.z);
+        //enemy.localScale = new Vector3(Mathf.Abs(initScale.x * direction), initScale.y, initScale.z);
 
         enemy.position = new Vector3(enemy.position.x + Time.deltaTime * direction * speed, enemy.position.y, enemy.position.z);
     }
