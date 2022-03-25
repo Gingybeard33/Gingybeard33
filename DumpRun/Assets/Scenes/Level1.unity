@@ -15903,6 +15903,10 @@ PrefabInstance:
       propertyPath: m_HDR
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1747349931855080688, guid: 306d52769c17bd44dbfa8eebf534a827, type: 3}
+      propertyPath: orthographic size
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1747349931855080690, guid: 306d52769c17bd44dbfa8eebf534a827, type: 3}
       propertyPath: player
       value: 
