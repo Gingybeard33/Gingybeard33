@@ -31,6 +31,10 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.isPaused)
+        {
+            return;
+        }
         if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown)
         {
             Attack();

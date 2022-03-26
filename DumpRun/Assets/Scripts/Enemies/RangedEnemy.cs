@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RangedEnemy : MonoBehaviour
 {
-
+    public Animator animator;
     [SerializeField] private float attackCooldown;
     [SerializeField] private float range;
     [SerializeField] private float damage;
@@ -46,18 +46,43 @@ public class RangedEnemy : MonoBehaviour
 
         if (PlayerInSightShooting())
         {
+            
+            if (player.transform.position.x > this.transform.position.x)
+            {
+                this.transform.localScale = new Vector3 (Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+                Debug.Log("Shooting left");
+                
+            }
+            else
+            {
+                this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x) * -1, this.transform.localScale.y, this.transform.localScale.z);
+                Debug.Log("Shooting right");
+            }
+
+
             if (cooldownTimer >= attackCooldown)
             {
                 //attack
                 cooldownTimer = 0;
-                rangedAttack();
+
+                animator.SetBool("CupShoot", true);
+                //rangedAttack();
 
             }
+        }
+        else
+        {
+            animator.SetBool("CupShoot", false);
         }
         if (enemyPatrol != null)
         {
             enemyPatrol.enabled = !PlayerInSightShooting();
         }
+    }
+
+    public void animatorShoot()
+    {
+        rangedAttack();
     }
 
     private void rangedAttack()
