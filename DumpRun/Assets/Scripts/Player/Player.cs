@@ -300,6 +300,11 @@ public class Player : MonoBehaviour
             // health = health - 0.1f;
             trashCollected++;
         }
+        if (other.gameObject.layer == 13)
+        {
+            health = 1.0f;
+            Destroy(other.gameObject);
+        }
         //if object is enemy projectile, take damage
     }
 
@@ -307,6 +312,12 @@ public class Player : MonoBehaviour
     public void TakeDamage(float damage)
     {
         health = health - damage;
+    }
+
+    public void SetHealth(float hp)
+    {
+
+        health = hp;
     }
 
      /*
