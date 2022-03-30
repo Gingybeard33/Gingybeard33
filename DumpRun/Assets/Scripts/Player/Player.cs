@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private HealthBar healthBar;
 
-    public int trashCollected = 0;
+    public static int trashCollected = 0;
 
     //First thing that happens when the game is insialized 
     private void Awake()
