@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20ccb554bde321d428fdf338309efabe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   startingPoint: 0
   points:
   - {fileID: 142254375}
@@ -18674,6 +18674,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 2972819771420894217, guid: 75ee52b047e74aa47b4af9a3240f1a81, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2972819771420894218, guid: 75ee52b047e74aa47b4af9a3240f1a81, type: 3}
       propertyPath: health
       value: 1
@@ -18686,6 +18690,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 777579501}
+    - target: {fileID: 2972819771420894219, guid: 75ee52b047e74aa47b4af9a3240f1a81, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2972819771420894222, guid: 75ee52b047e74aa47b4af9a3240f1a81, type: 3}
       propertyPath: m_RootOrder
       value: 0

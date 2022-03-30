@@ -33,7 +33,8 @@ public class Player : MonoBehaviour
     public float jumpBuffer = .1f;
     private float jumpBufferCount;
     //Wall jump
-    private BoxCollider2D boxCollider;
+    private CapsuleCollider2D boxCollider;
+    //private BoxCollider2D boxCollider;
     private float wallJumpTime = 0.2f;
     private float wallJump;
     private float wallSlideSpeed = 0.5f;
@@ -51,7 +52,8 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rigidBodyComponent = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
+       //boxCollider = GetComponent<BoxCollider2D>();
+        boxCollider = GetComponent<CapsuleCollider2D>();
     }
     // Start is called before the first frame update
     void Start()
