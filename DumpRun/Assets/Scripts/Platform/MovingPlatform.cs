@@ -35,12 +35,15 @@ public class MovingPlatform : MonoBehaviour
     // Set player to be child of platform, so it moves with it
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //collision.transform.SetParent(transform);
+         collision.transform.SetParent(transform);
+
     }
 
     // Remove player as child when they leave the platform
     private void OnCollisionExit2D(Collision2D collision)
     {
-        //collision.transform.SetParent(null);
+         collision.transform.SetParent(null);
+
+
     }
 }

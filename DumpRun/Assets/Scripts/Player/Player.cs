@@ -42,6 +42,9 @@ public class Player : MonoBehaviour
     private float wallDistance = .55f;
     private RaycastHit2D wallCheckHit;
 
+    
+
+    private float defaultGravity = 1.75f; 
     //Health
     [SerializeField] private float health;
     [SerializeField] private HealthBar healthBar;
@@ -144,7 +147,7 @@ public class Player : MonoBehaviour
     {
         rigidBodyComponent.velocity = new Vector2(horizontalInput*walkSpeed, rigidBodyComponent.velocity.y);
 
-
+       // rigidBodyComponent.gravityScale = defaultGravity;
 
        
         //walljump
@@ -247,7 +250,7 @@ public class Player : MonoBehaviour
     //jumps
     private void Jump()
     {
-
+        //reset gravity back to normal
 
 
         //rigidBodyComponent.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -304,6 +307,11 @@ public class Player : MonoBehaviour
         {
             health = 1.0f;
             Destroy(other.gameObject);
+        }
+        if (other.gameObject.layer == 14)
+        {
+            //set gravity to some high number
+           // rigidBodyComponent.gravityScale = 1000.0f;
         }
         //if object is enemy projectile, take damage
     }
