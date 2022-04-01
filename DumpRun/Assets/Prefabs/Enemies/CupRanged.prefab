@@ -128,7 +128,7 @@ MonoBehaviour:
   animator: {fileID: 71152534737517908}
   attackCooldown: 1
   range: 13
-  damage: 0.2
+  damage: 0.05
   rangeHeight: 8
   firepoint: {fileID: 2910164767372229044}
   fireball:
@@ -485,7 +485,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164765618102742
 GameObject:
@@ -634,7 +634,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164765948931867
 GameObject:
@@ -783,7 +783,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164766034786661
 GameObject:
@@ -976,7 +976,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164766078380855
 GameObject:
@@ -1125,7 +1125,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164766193732914
 GameObject:
@@ -1274,7 +1274,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164766207543324
 GameObject:
@@ -1423,7 +1423,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164766222482237
 GameObject:
@@ -1572,7 +1572,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164766398157094
 GameObject:
@@ -1721,7 +1721,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164766500103387
 GameObject:
@@ -1870,7 +1870,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164767023010810
 GameObject:
@@ -2051,7 +2051,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164767158899859
 GameObject:
@@ -2200,7 +2200,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164767305857232
 GameObject:
@@ -2349,7 +2349,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1 &2910164767372229047
 GameObject:
@@ -2528,7 +2528,7 @@ MonoBehaviour:
   speed: 5
   resetTime: 2
   player: {fileID: 0}
-  damage: 0.2
+  damage: 0.05
   angle: 0
 --- !u!1001 &2910164766837925302
 PrefabInstance:

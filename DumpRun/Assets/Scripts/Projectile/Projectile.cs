@@ -40,7 +40,7 @@ public class Projectile : MonoBehaviour
       
         //explode
         //do damage to enemy we contacted
-        if (!(collision.gameObject.layer == 7) && !(collision.gameObject.layer == 11))
+        if (!(collision.gameObject.layer == 7) && !(collision.gameObject.layer == 11) && !(collision.gameObject.layer == 15))
         {
             if (collision.gameObject.layer == 8)
             {

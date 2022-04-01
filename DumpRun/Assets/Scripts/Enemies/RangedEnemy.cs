@@ -159,4 +159,9 @@ public class RangedEnemy : MonoBehaviour
     {
         health = health - damage;
     }
+
+    public void ShootSound()
+    {
+        player.allSounds.PlayEnemyShoot();
+    }
 }

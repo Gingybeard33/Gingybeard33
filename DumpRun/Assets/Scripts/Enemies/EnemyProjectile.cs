@@ -60,6 +60,10 @@ public class EnemyProjectile : MonoBehaviour
         {
             return;
         }
+        if(collision.gameObject.layer == 15)
+        {
+            return;
+        }
         if (collision.gameObject.layer == 6)
         {
             Player playerHit = collision.GetComponent<Player>();

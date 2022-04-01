@@ -109,6 +109,12 @@ public class MeleeEnemy : MonoBehaviour
 
     }
 
+    public void SlashSound()
+    {
+        player.allSounds.PlayEnemyMelee();
+        
+    }
+
     private void OnDrawGizmos()
     {
         

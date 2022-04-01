@@ -18,8 +18,9 @@ public class FloorRespawn : MonoBehaviour
     {
         if (player.transform.position.y <= transform.position.y)
         {
-            int scene = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            player.SetHealth(-1f);
+            //int scene = SceneManager.GetActiveScene().buildIndex;
+            //SceneManager.LoadScene(scene, LoadSceneMode.Single);
         }
     }
 }

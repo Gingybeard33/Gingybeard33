@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     private float horizontalInput;
     private Rigidbody2D rigidBodyComponent;
 
+    public static Vector3 respawnLocation;
 
     private bool HasDoubleJump = true;
     
@@ -49,6 +50,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float health;
     [SerializeField] private HealthBar healthBar;
 
+    [SerializeField] public sounds allSounds;
+
     public static int trashCollected = 0;
 
     //First thing that happens when the game is insialized 
@@ -72,8 +75,10 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
 
-            int scene = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            //int scene = SceneManager.GetActiveScene().buildIndex;
+            // SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            this.transform.position = Player.respawnLocation;
+            health = 1;
         }
         healthBar.SetSize(health);
         horizontalInput = Input.GetAxis("Horizontal");
@@ -302,6 +307,7 @@ public class Player : MonoBehaviour
             //trash picked up by player
             // health = health - 0.1f;
             trashCollected++;
+            allSounds.PlayTrashCollected();
         }
         if (other.gameObject.layer == 13)
         {
@@ -312,6 +318,10 @@ public class Player : MonoBehaviour
         {
             //set gravity to some high number
            // rigidBodyComponent.gravityScale = 1000.0f;
+        }
+        if (other.gameObject.layer == 15)
+        {
+            Player.respawnLocation = other.gameObject.transform.position;
         }
         //if object is enemy projectile, take damage
     }
@@ -328,51 +338,59 @@ public class Player : MonoBehaviour
         health = hp;
     }
 
-     /*
-     // From Tutorial Video - Working movement and jumping
-     // 
-    [SerializeField] private Transform groundCheckTransform;
-    [SerializeField] private LayerMask playerMask;
-
-    private bool jumpKeyPressed;
-    private float horizontalInput;
-    private Rigidbody2D rigidBodyComp;
-
-    private void Start()
+    public void PlayWindex()
     {
-        rigidBodyComp = GetComponent<Rigidbody2D>();
+        allSounds.PlayPlayerShoot();
     }
-
-    private void Update()
+    public void PlayTrash()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            jumpKeyPressed = false;
-            Debug.Log("Space Released");
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            jumpKeyPressed = true;
-            Debug.Log("Space Pressed");
-        }
-
-        horizontalInput = Input.GetAxis("Horizontal");
+        allSounds.PlayPlayerMelee();
     }
+    /*
+    // From Tutorial Video - Working movement and jumping
+    // 
+   [SerializeField] private Transform groundCheckTransform;
+   [SerializeField] private LayerMask playerMask;
 
-    private void FixedUpdate()
-    {
-        rigidBodyComp.velocity = new Vector2(horizontalInput, rigidBodyComp.velocity.y);
+   private bool jumpKeyPressed;
+   private float horizontalInput;
+   private Rigidbody2D rigidBodyComp;
 
-        if (Physics2D.OverlapCircleAll(groundCheckTransform.position, 0.1f).Length == 2)
-        {
-            return;
-        }
+   private void Start()
+   {
+       rigidBodyComp = GetComponent<Rigidbody2D>();
+   }
 
-        if (jumpKeyPressed)
-        {
-            rigidBodyComp.AddForce(Vector3.up * 3, ForceMode2D.Impulse);
-        }
-    } 
-     */
+   private void Update()
+   {
+       if (Input.GetKeyUp(KeyCode.Space))
+       {
+           jumpKeyPressed = false;
+           Debug.Log("Space Released");
+       }
+
+       if (Input.GetKeyDown(KeyCode.Space))
+       {
+           jumpKeyPressed = true;
+           Debug.Log("Space Pressed");
+       }
+
+       horizontalInput = Input.GetAxis("Horizontal");
+   }
+
+   private void FixedUpdate()
+   {
+       rigidBodyComp.velocity = new Vector2(horizontalInput, rigidBodyComp.velocity.y);
+
+       if (Physics2D.OverlapCircleAll(groundCheckTransform.position, 0.1f).Length == 2)
+       {
+           return;
+       }
+
+       if (jumpKeyPressed)
+       {
+           rigidBodyComp.AddForce(Vector3.up * 3, ForceMode2D.Impulse);
+       }
+   } 
+    */
 }

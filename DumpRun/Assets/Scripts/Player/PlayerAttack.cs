@@ -48,20 +48,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 Debug.Log("MeleePressed");
                 player.animator.SetBool("MeleePressed", true);
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, meleeRange, enemyMask);
-                for (int i = 0; i < enemies.Length; i++)
-                {
-                    try
-                    {
-                        enemies[i].GetComponent<MeleeEnemy>().TakeDamage(meleeDamage);
-                    }
-                    catch
-                    {
-                        enemies[i].GetComponent<RangedEnemy>().TakeDamage(meleeDamage);
-                    }
-                    Debug.Log("MeleeAttack");
-                   
-                }
+               
                 meleeTimeBetweenAttack = meleeStartTimeBetweenAttack;
             }
             //player.animator.SetBool("MeleePressed", false);
@@ -82,13 +69,34 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.DrawWireSphere(attackPos.position, meleeRange);
     }
 
+    public void PlayerMelee()
+    {
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, meleeRange, enemyMask);
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            try
+            {
+                enemies[i].GetComponent<MeleeEnemy>().TakeDamage(meleeDamage);
+            }
+            catch
+            {
+                enemies[i].GetComponent<RangedEnemy>().TakeDamage(meleeDamage);
+            }
+            Debug.Log("MeleeAttack");
+
+        }
+    }
+
     private void Attack()
     {
         //play animation for attack
         cooldownTimer = 0;
+        player.PlayWindex();
         //int bullet = FindFireball();
         projectiles[FindFireball()].transform.position = firePoint.position;
         projectiles[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+
+       
     }
 
     private int FindFireball()
