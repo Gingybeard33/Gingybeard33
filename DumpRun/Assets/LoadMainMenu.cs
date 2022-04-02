@@ -7,10 +7,11 @@ public class LoadMainMenu : MonoBehaviour
 
     [SerializeField] Player player;
     [SerializeField] MeleeEnemy enemy;
+    private SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
     }
 
 
@@ -18,7 +19,10 @@ public class LoadMainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (enemy.health <=0)
+        {
+            sr.color = new Color(0f, 128f, 0f);
+        }
 
         
     }

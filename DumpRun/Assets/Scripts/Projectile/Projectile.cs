@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
     {
         if(hit)
             return;
-        float movementSpeed = speed * Time.deltaTime * direction;
+        float movementSpeed = speed * Time.deltaTime * direction * 2;
         transform.Translate(movementSpeed, 0, 0);
 
         lifeTime += Time.deltaTime;
