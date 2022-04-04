@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private LayerMask platformLayer;
     [SerializeField] private int jumpForce;
     [SerializeField] private int wallJumpXForce;
     [SerializeField] private int wallJumpYForce;
@@ -248,6 +249,11 @@ public class Player : MonoBehaviour
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, 
             Vector2.down, 0.1f, groundLayer);
+
+        if (raycastHit.collider == null)
+            raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0,
+            Vector2.down, 0.1f, platformLayer);
+
         return raycastHit.collider != null;
     }
 
