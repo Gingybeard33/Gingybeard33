@@ -13,6 +13,7 @@ public class EnemyPatrol : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private float idleDuration;
+    [SerializeField] private HealthBar healthBar;
     private float idleTimer;
 
     private Vector3 initScale;

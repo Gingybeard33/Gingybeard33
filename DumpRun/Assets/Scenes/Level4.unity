@@ -3124,7 +3124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &330188888
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4036,7 +4036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &422228753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4436,7 +4436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &451432961
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5814,6 +5814,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   speed: 1
   idleDuration: 2
+  healthBar: {fileID: 0}
   movingLeft: 0
 --- !u!212 &602805627
 SpriteRenderer:
@@ -7147,7 +7148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &729169819
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7234,6 +7235,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   speed: 1
   idleDuration: 2
+  healthBar: {fileID: 0}
   movingLeft: 0
 --- !u!212 &736510659
 SpriteRenderer:
@@ -7462,7 +7464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &744814565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8272,7 +8274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &827248654
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8718,6 +8720,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   speed: 1
   idleDuration: 2
+  healthBar: {fileID: 0}
   movingLeft: 0
 --- !u!212 &851444497
 SpriteRenderer:
@@ -9391,7 +9394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &901350933
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9731,7 +9734,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &944819716
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10290,6 +10293,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   speed: 1
   idleDuration: 2
+  healthBar: {fileID: 0}
   movingLeft: 0
 --- !u!212 &989675876
 SpriteRenderer:
@@ -10781,7 +10785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1025475897
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11183,7 +11187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1040254502
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11905,7 +11909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1093456602
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13277,7 +13281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1230490347
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13423,7 +13427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1233655728
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14668,7 +14672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1371639886
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14896,7 +14900,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1379633991
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15211,7 +15215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1398234435
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15680,6 +15684,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   speed: 1
   idleDuration: 2
+  healthBar: {fileID: 0}
   movingLeft: 0
 --- !u!212 &1459805035
 SpriteRenderer:
@@ -16998,7 +17003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1624842086
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17791,7 +17796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1692803292
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18156,7 +18161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1743094269
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18302,7 +18307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1744156527
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18916,7 +18921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1792213542
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -19498,6 +19503,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2562171027969438815, guid: 8822687d0bd808e4abad5cf34f8e73f0, type: 3}
   m_PrefabInstance: {fileID: 1853536264}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1855201958
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4781084739587724433, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_Name
+      value: LoadOtherLevels
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399178537014115894, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_RootOrder
+      value: 54
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399178537014115894, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 99.67116
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399178537014115894, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -102.97552
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399178537014115894, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -27.495533
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399178537014115894, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399178537014115894, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399178537014115894, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399178537014115894, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399178537014115894, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399178537014115894, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399178537014115894, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6328d241aafd0bd4ca8978d6a4f6c117, type: 3}
 --- !u!1001 &1855851420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20649,6 +20711,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   speed: 1
   idleDuration: 2
+  healthBar: {fileID: 0}
   movingLeft: 0
 --- !u!212 &1933995883
 SpriteRenderer:

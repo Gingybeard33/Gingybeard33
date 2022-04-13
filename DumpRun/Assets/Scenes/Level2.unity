@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &647271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1901,7 +1901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &85196970
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2463,7 +2463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &108455752
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4922,7 +4922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &281270431
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9171,7 +9171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &640369222
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9447,7 +9447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &663220918
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10475,7 +10475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &757890767
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11382,7 +11382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &848712850
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11745,7 +11745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &865492444
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14184,7 +14184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1029610339
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15888,7 +15888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1143445593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16887,7 +16887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1208317874
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17439,7 +17439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1241993247
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17605,7 +17605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1249137677
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18553,7 +18553,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1305937248
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18699,7 +18699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1310048126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22776,7 +22776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1635048597
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -25706,7 +25706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &1826507376
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28010,7 +28010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &2033502554
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28418,7 +28418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &2061694652
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29278,7 +29278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 14
-  damage: 0.1
+  damage: 0.25
 --- !u!212 &2129752272
 SpriteRenderer:
   m_ObjectHideFlags: 0

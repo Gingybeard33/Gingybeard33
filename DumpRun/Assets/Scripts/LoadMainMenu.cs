@@ -12,6 +12,7 @@ public class LoadMainMenu : MonoBehaviour
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+       
     }
 
 
@@ -35,6 +36,7 @@ public class LoadMainMenu : MonoBehaviour
             if (enemy.health <= 0)
             {
                 SceneManager.LoadScene("MainMenu");
+                //Player.trashCollected = 0;
             }
         }
     }

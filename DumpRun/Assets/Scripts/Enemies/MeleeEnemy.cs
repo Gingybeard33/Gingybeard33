@@ -21,6 +21,8 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] public float health;
     [SerializeField] private HealthBar healthBar;
 
+    private bool movingRight = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,8 +39,12 @@ public class MeleeEnemy : MonoBehaviour
             return;
         }
 
-
-        healthBar.SetSize(health);
+        if (movingRight)
+        { healthBar.SetSize(health, true); }
+        else
+        {
+            healthBar.SetSize(health, false);
+        }
         cooldownTimer += Time.deltaTime;
         if ((cooldownTimer >= attackCooldown))
         {
@@ -57,6 +63,11 @@ public class MeleeEnemy : MonoBehaviour
                // DamagePlayer();
 
             }
+            else if (cooldownTimer >= 0.5)
+            {
+                animator.SetBool("Attacking", false);
+            }
+            
         }
         else
         {
@@ -65,6 +76,17 @@ public class MeleeEnemy : MonoBehaviour
         if (enemyPatrol != null)
         {
             enemyPatrol.enabled = !PlayerInSightMele();
+        }
+        if ((enemyPatrol.movingLeft == true) && (movingRight == true))
+        {
+           //healthBar.changeDirection();
+            movingRight = false;
+        }
+        if ((enemyPatrol.movingLeft == false) && (movingRight == false))
+        {
+
+           // healthBar.changeDirection();
+            movingRight = true;
         }
     }
 

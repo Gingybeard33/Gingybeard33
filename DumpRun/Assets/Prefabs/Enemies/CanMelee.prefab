@@ -103,6 +103,7 @@ MonoBehaviour:
   enemy: {fileID: 8495545163988327912}
   speed: 2
   idleDuration: 2
+  healthBar: {fileID: 8495545164729846402}
   movingLeft: 0
 --- !u!1 &8495545163090070837
 GameObject:
@@ -505,7 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 8495545164317704710}
-  attackCooldown: 2
+  attackCooldown: 1
   range: 3
   rangeHeight: 1
   colliderDistance: 0.5
@@ -592,7 +593,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8495545164847690625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.11, y: 0, z: 0}
+  m_LocalPosition: {x: 3.22, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8495545164694068164}

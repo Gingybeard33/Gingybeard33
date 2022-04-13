@@ -25,6 +25,8 @@ public class RangedEnemy : MonoBehaviour
     //Health
     [SerializeField] private float health;
     [SerializeField] private HealthBar healthBar;
+    bool movingRight = true;
+    bool oldMovingRight = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,12 @@ public class RangedEnemy : MonoBehaviour
         }
 
 
-        healthBar.SetSize(health);
+        if (movingRight)
+        { healthBar.SetSize(health, true); }
+        else
+        {
+            healthBar.SetSize(health, false);
+        }
         cooldownTimer += Time.deltaTime;
 
         if (PlayerInSightShooting())
@@ -51,12 +58,14 @@ public class RangedEnemy : MonoBehaviour
             {
                 this.transform.localScale = new Vector3 (Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
                 Debug.Log("Shooting left");
+                movingRight = true;
                 
             }
             else
             {
                 this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x) * -1, this.transform.localScale.y, this.transform.localScale.z);
                 Debug.Log("Shooting right");
+                movingRight = false;
             }
 
 
@@ -72,12 +81,28 @@ public class RangedEnemy : MonoBehaviour
         }
         else
         {
+            movingRight = oldMovingRight;
             animator.SetBool("CupShoot", false);
+            if ((enemyPatrol.movingLeft == true) && (movingRight == true))
+            {
+                //healthBar.changeDirection();
+                movingRight = false;
+            }
+            if ((enemyPatrol.movingLeft == false) && (movingRight == false))
+            {
+
+                // healthBar.changeDirection();
+                movingRight = true;
+            }
+            oldMovingRight = movingRight;
         }
         if (enemyPatrol != null)
         {
             enemyPatrol.enabled = !PlayerInSightShooting();
         }
+
+
+        
     }
 
     public void animatorShoot()

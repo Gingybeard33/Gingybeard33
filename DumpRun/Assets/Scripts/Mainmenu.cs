@@ -6,9 +6,13 @@ using UnityEngine.SceneManagement;
 public class Mainmenu : MonoBehaviour
 {
 
+   
+
     public void PlayGame()
     {
+        
         SceneManager.LoadScene("Level1");
+        
     }
 
     public void QuitGame()
@@ -18,7 +22,7 @@ public class Mainmenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Player.trashCollected = 0;
     }
 
     // Update is called once per frame
