@@ -116,6 +116,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 810a34eadc008d84caf1482d70d8f0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &195262048596234915
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +208,7 @@ GameObject:
   - component: {fileID: 1747349931855080690}
   m_Layer: 0
   m_Name: MainCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -988,7 +990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3869956764733662369
 RectTransform:
   m_ObjectHideFlags: 0

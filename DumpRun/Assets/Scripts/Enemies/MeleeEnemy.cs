@@ -23,6 +23,8 @@ public class MeleeEnemy : MonoBehaviour
 
     private bool movingRight = true;
 
+    [SerializeField] bool isBoss = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -170,6 +172,14 @@ public class MeleeEnemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health = health - damage;
+        if (!isBoss)
+        {
+            health = health - damage;
+        }
+        else
+        {
+            health = health - damage/2;
+        }
+        
     }
 }

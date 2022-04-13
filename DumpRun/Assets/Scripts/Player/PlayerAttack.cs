@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
 
     public Transform attackPos;
     public LayerMask enemyMask;
+    public LayerMask enemyProj;
     public float meleeRange;
     public float meleeDamage;
 
@@ -81,6 +82,21 @@ public class PlayerAttack : MonoBehaviour
             catch
             {
                 enemies[i].GetComponent<RangedEnemy>().TakeDamage(meleeDamage);
+            }
+            Debug.Log("MeleeAttack");
+
+        }
+        Collider2D[] proj = Physics2D.OverlapCircleAll(attackPos.position, meleeRange, enemyProj);
+        for (int i = 0; i < proj.Length; i++)
+        {
+            try
+            {
+                proj[i].GetComponent<EnemyProjectile>().Deactivate();
+                player.incramentTrash(1);
+            }
+            catch
+            {
+               
             }
             Debug.Log("MeleeAttack");
 

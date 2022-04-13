@@ -82,7 +82,7 @@ public class EnemyProjectile : MonoBehaviour
         
 
     }
-    private void Deactivate()
+    public void Deactivate()
     {
         gameObject.SetActive(false);
     }

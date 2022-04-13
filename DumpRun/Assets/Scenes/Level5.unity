@@ -61950,6 +61950,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8495545164317704704, guid: 904596908017c4c45bad0e74c283378c, type: 3}
+      propertyPath: isBoss
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495545164317704704, guid: 904596908017c4c45bad0e74c283378c, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 667680762646118175}

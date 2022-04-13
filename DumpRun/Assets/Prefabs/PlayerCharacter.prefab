@@ -308,6 +308,9 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 256
+  enemyProj:
+    serializedVersion: 2
+    m_Bits: 2048
   meleeRange: 1.5
   meleeDamage: 0.5
   meleeStartTimeBetweenAttack: 1

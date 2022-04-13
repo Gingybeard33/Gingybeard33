@@ -27,6 +27,7 @@ public class RangedEnemy : MonoBehaviour
     [SerializeField] private HealthBar healthBar;
     bool movingRight = true;
     bool oldMovingRight = true;
+    [SerializeField] bool isBoss = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -182,7 +183,15 @@ public class RangedEnemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health = health - damage;
+        if (!isBoss)
+        {
+            health = health - damage;
+        }
+        else
+        {
+            health = health - damage / 2;
+        }
+
     }
 
     public void ShootSound()
