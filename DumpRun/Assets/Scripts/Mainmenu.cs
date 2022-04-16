@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 public class Mainmenu : MonoBehaviour
 {
 
-   
+    [SerializeField] public sounds allSounds;
 
     public void PlayGame()
     {
-        
+        //allSounds.StopTitle();
         SceneManager.LoadScene("Level1");
         
     }
@@ -23,6 +23,8 @@ public class Mainmenu : MonoBehaviour
     void Start()
     {
         Player.trashCollected = 0;
+        //allSounds.PlayTitle();
+        
     }
 
     // Update is called once per frame

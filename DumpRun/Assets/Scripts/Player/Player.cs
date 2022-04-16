@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     [SerializeField] private LayerMask playerMask;
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private LayerMask platformLayer;
+    [SerializeField] private LayerMask skyLayer;
     [SerializeField] private int jumpForce;
     [SerializeField] private int wallJumpXForce;
     [SerializeField] private int wallJumpYForce;
@@ -249,12 +250,18 @@ public class Player : MonoBehaviour
     //checks if you are on the ground
     private bool isGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, 
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size , 0, 
             Vector2.down, 0.1f, groundLayer);
 
         if (raycastHit.collider == null)
-            raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0,
+            raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size , 0,
             Vector2.down, 0.1f, platformLayer);
+
+        if (raycastHit.collider == null)
+        {
+            raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size , 0,
+            Vector2.down, 0.1f, skyLayer);
+        }
 
         return raycastHit.collider != null;
     }
@@ -345,12 +352,19 @@ public class Player : MonoBehaviour
 
         CameraEffects.ShakeOnce();
         health = health - damage;
+        allSounds.PlayHitSound();
     }
 
     public void SetHealth(float hp)
     {
 
         health = hp;
+    }
+
+    public void GainHP(float hp)
+    {
+        health = hp;
+        allSounds.PlayHP();
     }
 
     public void PlayWindex()

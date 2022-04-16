@@ -80,7 +80,7 @@ public class Projectile : MonoBehaviour
             localtScaleX = -localtScaleX;
         }
 
-        transform.localScale = new Vector3(localtScaleX, transform.localScale.y, transform.localScale.z);
+        transform.localScale = new Vector3(-localtScaleX, transform.localScale.y, transform.localScale.z);
     }
 
     private void deactivate()

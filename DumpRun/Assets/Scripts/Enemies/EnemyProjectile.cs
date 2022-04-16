@@ -34,6 +34,17 @@ public class EnemyProjectile : MonoBehaviour
         //int distance = heading.magnitude;
         direction = heading.normalized;
 
+
+        float height = player.transform.position.y - transform.position.y;
+
+        float widte = player.transform.position.x - transform.position.x;
+
+        float hypotenuse = Mathf.Sqrt(height * height + widte * widte);
+
+        float angle = Mathf.Asin(height / hypotenuse);
+
+        //transform.Rotate (new Vector3(-angle, 0f, 0f), Space.Self);
+
         Debug.Log(direction);
     }
     private void Update()

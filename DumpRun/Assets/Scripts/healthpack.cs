@@ -22,7 +22,8 @@ public class healthpack : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
-            player.SetHealth(1f);
+            player.GainHP(1f);
+            
             Destroy(this);
         }
         
