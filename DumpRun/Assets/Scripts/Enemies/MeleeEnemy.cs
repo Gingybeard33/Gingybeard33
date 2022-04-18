@@ -25,6 +25,10 @@ public class MeleeEnemy : MonoBehaviour
 
     [SerializeField] bool isBoss = false;
 
+    public bool isNewspaper = false;
+    public bool isSlime = false;
+    public bool isPlastic = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,20 +59,75 @@ public class MeleeEnemy : MonoBehaviour
         }
         if (PlayerInSightMele())
         {
-            if (cooldownTimer >= attackCooldown)
+            if (isNewspaper)
             {
-                //attack
-                Debug.Log("Can Attacking");
-                animator.SetBool("Attacking", false);
-                animator.SetBool("Attacking", true);
-                cooldownTimer = 0;
-               // DamagePlayer();
+                if (cooldownTimer >= attackCooldown)
+                {
+                    //attack
+                    Debug.Log("Can Attacking");
+                    animator.SetBool("Attacking", false);
+                    animator.SetBool("Attacking", true);
+                    cooldownTimer = 0;
+                    // DamagePlayer();
 
+                }
+                else if (cooldownTimer >= 6)
+                {
+                    animator.SetBool("Attacking", false);
+                }
             }
-            else if (cooldownTimer >= 0.5)
+            else if (isSlime)
             {
-                animator.SetBool("Attacking", false);
+                if (cooldownTimer >= attackCooldown)
+                {
+                    //attack
+                    Debug.Log("Can Attacking");
+                    animator.SetBool("Attacking", false);
+                    animator.SetBool("Attacking", true);
+                    cooldownTimer = 0;
+                    // DamagePlayer();
+
+                }
+                else if (cooldownTimer >= 1)
+                {
+                    animator.SetBool("Attacking", false);
+                }
             }
+            else if (isPlastic)
+            {
+                if (cooldownTimer >= attackCooldown)
+                {
+                    //attack
+                    Debug.Log("Plastic Attacking");
+                    animator.SetBool("Attacking", false);
+                    animator.SetBool("Attacking", true);
+                    cooldownTimer = 0;
+                    // DamagePlayer();
+
+                }
+                else if (cooldownTimer >= 1)
+                {
+                    animator.SetBool("Attacking", false);
+                }
+            }
+            else
+            {
+                if (cooldownTimer >= attackCooldown)
+                {
+                    //attack
+                    Debug.Log("Can Attacking");
+                    animator.SetBool("Attacking", false);
+                    animator.SetBool("Attacking", true);
+                    cooldownTimer = 0;
+                    // DamagePlayer();
+
+                }
+                else if (cooldownTimer >= 0.5)
+                {
+                    animator.SetBool("Attacking", false);
+                }
+            }
+            
             
         }
         else
@@ -178,7 +237,7 @@ public class MeleeEnemy : MonoBehaviour
         }
         else
         {
-            health = health - damage/2;
+            health = health - damage/4;
         }
         
     }
