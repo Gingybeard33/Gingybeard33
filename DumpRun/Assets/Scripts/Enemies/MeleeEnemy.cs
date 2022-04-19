@@ -28,6 +28,7 @@ public class MeleeEnemy : MonoBehaviour
     public bool isNewspaper = false;
     public bool isSlime = false;
     public bool isPlastic = false;
+    public bool isCloud = false;
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +95,23 @@ public class MeleeEnemy : MonoBehaviour
                 }
             }
             else if (isPlastic)
+            {
+                if (cooldownTimer >= attackCooldown)
+                {
+                    //attack
+                    Debug.Log("Plastic Attacking");
+                    animator.SetBool("Attacking", false);
+                    animator.SetBool("Attacking", true);
+                    cooldownTimer = 0;
+                    // DamagePlayer();
+
+                }
+                else if (cooldownTimer >= 1)
+                {
+                    animator.SetBool("Attacking", false);
+                }
+            }
+            else if (isCloud)
             {
                 if (cooldownTimer >= attackCooldown)
                 {
