@@ -1,0 +1,33 @@
+<RCC>
+    <qresource prefix="/levelLists">
+        <file>Level1.txt</file>
+        <file>Level2.txt</file>
+        <file>Level3.txt</file>
+        <file>Level4.txt</file>
+        <file>Level5.txt</file>
+        <file>Level6.txt</file>
+        <file>FieldPhrases.txt</file>
+    </qresource>
+    <qresource prefix="/Fonts">
+        <file>armalite.ttf</file>
+    </qresource>
+    <qresource prefix="/Images">
+        <file>A-EMorse.png</file>
+        <file>F-JMorse.png</file>
+        <file>K-PMorse.png</file>
+        <file>Q-UMorse.png</file>
+        <file>V-ZMorse.png</file>
+        <file>A-ZMorse.png</file>
+        <file>confetti.png</file>
+        <file>FullMorseCodeChart.png</file>
+    </qresource>
+    <qresource prefix="/Confetti">
+        <file>purple.png</file>
+        <file>blue.png</file>
+        <file>green.png</file>
+        <file>yellow.png</file>
+        <file>orange.png</file>
+        <file>red.png</file>
+    </qresource>
+    <qresource prefix="/Sounds"/>
+</RCC>

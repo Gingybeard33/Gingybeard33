@@ -1,0 +1,14 @@
+A
+B
+C
+D
+E
+ACED
+BEAD
+CADE
+CAB
+BAD
+BED
+AD
+EA
+ED
